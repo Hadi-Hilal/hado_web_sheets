@@ -1,0 +1,334 @@
+                                /* CSS3 sheet */
+
+
+
+                                /*before we start */
+
+   /* if we want to know code support in browser we have https://caniuse.com web page */
+
+                                /* selector */
+
+    /* (~) this mean the next element in the same parent ex...div~p */
+    /* :first-of-type this mean the first element of same the type we write */
+    /* :last-of-type this mean the last element of same the type we write */
+    /* ::selection this mean when we select the element to copy..etc */
+    /* :not(selector or name class) this mean exapte this selector  */
+    /* :nth() this mean n=number th =(1st, 2nd, 3rd...)
+       nth(number or formula or "keyword= odd or even "  ) */
+
+                              /*box sizing */
+
+ *{
+    /* we use this method to prevent calc margin & padding */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+                              /*box shadows */
+
+ div{
+   /*  box-shadow: Horizontal value / vertical value / blur / color;
+    example; */
+    -webkit-box-shadow: 10px 10px 5px #cccc;
+    -moz-box-shadow: 10px 10px 5px #cccc;
+     box-shadow: 10px 10px 5px #cccc;
+}
+
+                              /*text shadows */
+
+  h1{
+   /*  text-shadow: Horizontal value / vertical value  / blur / color;
+   example; */
+      text-shadow: 10px 10px 5px #cccc;
+}
+
+                              /*white-space,word wrap */
+
+  p{
+       /*  this method make the text inline without wrap  */
+      white-space: nowrap;
+      /*  this method break the text */
+      word-wrap: break-word;
+  }
+
+                              /* text-overflow */
+p{
+    /*  text-overflow: clip;      this reset value
+        text-overflow: ellipsis;  this put points in the end */
+}
+
+                              /* transform  2D */
+div{
+     /* transform : scale(width,height);
+        transform : scalex() =width  transform: scaley() = height */
+     /* transform : translate(x,y); transform: transaltex(): transform :translatey() */
+     /* transform : rotate(deg) */
+     /* transform : skew(degx,degy) transform: skewx(): transform :skewy() */
+     /* transform : matrix(a,b,c,d,x,y) = matrix(scalex, skewy, skewx , scaley ,translatex, translatry) */
+
+    transform: matrix(1,2,0,0,300,30);
+}
+
+
+                              /* transform  3D */
+ div{
+
+      /*if we want to use transform 3d should be
+         body{perspective: 600px} */
+     /* transform: scale3d(width,height,z);
+        transform: scalex() =width  transform: scaley() = height */
+     /* transform : translate3d(x,y,z); transform: transaltex(): transform :translatey() transform :translatez()*/
+     /* transform : rotate(deg) */
+     /* transform : skew(degx,degy) transform: skewx(): transform :skewy() */
+     /* transform :matrix(a,b,c,d,x,y) = matrix(scalex, skewy, skewx , scaley ,translatex, translatry) */
+
+     transform: matrix(1,2,0,0,300,30);
+ }
+
+                              /* perspective */
+
+  div{
+      /* this method are used to make the element 3d */
+      perspective: 500px;
+
+      /* this method are used to define position the element and defalute value x= 50% , y=50%
+      perspective-origin: x , y; ..example */
+
+      perspective-origin: 70% 70%;
+  }
+
+                              /* transform-style */
+
+  div{
+      /* this method very important to preserve 3d style when we make some changes */
+      transform-style: preserve-3d;
+  }
+
+                              /* backface-visibility */
+
+div{
+    /* we use this method to hide backface the element */
+    backface-visibility: hidden;
+}
+
+                              /* z-index */
+div{
+    /* this method are used to sort layers ..ex ;*/
+    z-index: 1;
+}
+                              /* background-size */
+
+div{
+    /* background-size: width , height ;
+       background-size : cover */
+}
+
+                              /* background-clip */
+div{
+   /* background-clip: border-box;   start from border
+      background-clip: content-box;  start from content
+      background-clip: padding-box;  start from padding */
+}
+
+                              /* background-origin */
+  div{
+   /* background-origin: border-box;  the img start from border
+      background-origin: content-box; the img start from content
+      background-origin: padding-box; the img start from padding */
+   }
+
+/* note : the background-clip =  background-origin but background-origin special for img */
+
+                              /* resize */
+
+div{
+    /* resize : both we use this to resize screen the element */
+}
+
+                              /* flex box */
+
+/* to know more about flex box this link explain it https://www.madebymike.com.au/writing/understanding-flexbox/ */
+
+div{
+    display: flex;
+    /* flex-direction: row; make the element in the row
+       flex-direction: column make the element in the column
+       flex-wrap: nowrap;
+       flex-wrap: wrap;
+       flex-flow = flex-direction+flex-wrap
+       example */
+       flex-flow: row  wrap;
+     /*justify-content: flex-start;       we use this to make element start from start
+       justify-content: flex-end;         we use this to make element start from end
+       justify-content: center;           we use this to make element in center
+       justify-content: space-between;    we use this to make space between element
+       justify-content: space-around      we use this to make space around element */
+    /* align-items: flex-start;
+       align-items: flex-end;
+       align-items: center;
+       flex = flex-grow | flex-shrink |flex=basis
+        example */
+       flex: 0 1 auto;                  /* this is default value to flex */
+
+
+}
+
+                              /* order */
+div{
+    /* we use this to re arrange element
+      example */
+    order: 1;
+}
+                              /* transition */
+
+div{
+    /* transition : property | duration | timing-function | delay */
+
+     /*
+        transition-property : width;
+        transition-duration : number s;
+        transition-timing-function: ease;
+        transition-timing-function: linear;
+        transition-timing-function: ease-in;
+        transition-timing-function: ease-out;
+        transition-timing-function: ease-in-out;
+        transition-delay : number s; */
+}
+                              /* column-count */
+div{
+    /* we use this to divide the block to column */
+    -webkit-column-count: 5;
+    column-count: 5;
+}
+                              /* column-gap */
+
+div{
+    /* we use this divide and make padding between the block */
+    -webkit-column-gap: 100px;
+    column-gap: 100px;
+
+}
+
+                              /* columns */
+div{
+     /* this = columns = column-gap, column-cont or columns: width , cont; */
+    columns: 400px 5;
+}
+
+                                /* animation */
+
+div{
+
+    /* sayantx
+       animation : name , duration , timing function , delay , iteration ,  direction , fill mode , play state ;
+       animate :none 0 ease 0 1 normal none running   this is defulte value..
+       example */
+       animation: div 8s ease 0s  1 normal none running ;
+
+    /* @keyframes name here "the name required {
+        from or 0 %{ css attribute }
+        to or 100%{ css attribute }
+        }  example */
+
+    @keyframes my-animate {
+        from{
+
+        }
+        to{
+
+        }
+    }
+    /* this websites help us in animation -- http://animista.net/play/basic/scale-down --
+                                          -- https://daneden.github.io/animate.css/ --*/
+}
+                  
+                                        /* media query */
+
+          /* Extra small devices (portrait phones, less than 576px) */
+          @media (max-width: 575px) { ... }
+
+          /* Small devices (landscape phones, less than 768px) */
+          @media (min-width: 767px) and (max-width: 991px) { ... }
+
+          /* Medium devices (tablets, less than 992px) */ 
+          @media (min-width: 992px) and (max-width: 1199px) { ... }
+
+          /* Large devices (desktops, less than 1200px) */
+          @media (min-width: 1200px) { ... }
+
+     
+
+                                        /* created by hadi hilal */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

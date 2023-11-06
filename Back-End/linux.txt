@@ -1,0 +1,52 @@
+/*
+----------------------------------------
+-----------LINUX SHEETS CHEAT ----------
+----------------------------------------
+*/
+
+
+commands:
+=========
+         
+1- ls          : this command list our files in directory
+2- man command : descripe the command
+3- clear       : this clear our terminal screen 
+4- pwd         : print name of current/working directory
+5- locate,find: this commands search for any file in  #kali linux
+6- reboot      : this command restart our pc
+7- poweroff    : this command poweroff our pc
+8- touch       : this command create file
+9- echo        : display a line of text
+10 cat         : show what the file have 
+11 nano        : print what the file with edit 
+12 >           : delete all content file and add new thing
+13 Wget        : interactive network downloader.
+14 grep        : this is filter
+15 -i          : this command to make cases un senstive
+16 -o          : this command mean for open 
+
+
+
+permissions:
+===========
+in linux we have thre main users 
+1-root   = owner
+2-user   = group
+3-nobody = other
+
+
+
+directory or file  owner  group  other
+     d             rwx    r-x    r-x
+
+d: mean directory 
+r: mean read 4
+w: mean write 2
+x: mean execute 1
+
+To know more than about commands this is the ref site https://ss64.com/
+
+
+
+   ********** powered by hadi hilal ***********
+   

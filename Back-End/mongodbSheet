@@ -1,0 +1,87 @@
+MONGODB SHEET CHEAT 
+===================
+
+
+
+1-show dbs
+this command to show our database
+
+2-use 'tablename'
+this command to use our database
+
+3-show collections 
+this command show the tables in our databae
+
+4-db.dropDatabase()
+this command delete the database
+
+5-db.createCollection('name the table')
+this command to create table
+
+note : example about name of the table
+6-db.posts.insert({
+	title : 'post',
+	user  : {
+	name : 'ali' ,
+	status : 'online' ,
+	},
+	likes :7 ,
+	numbers : [4848848 , 99494949] ,
+	date : Date()
+})
+
+this command to insert in databases
+
+7-db.posts.find()
+this command show value in our table
+
+8-db.posts.find().pretty()
+this command show value in our table more redable
+
+9-db.posts.find().count()
+this command show count value in our table
+
+10-db.posts.find().limit(2)
+this command show just 2 records in our table
+
+11-db.posts.find().sort()
+this command sort value in our table
+
+
+12-db.posts.find().forEach()
+this command make value in our table in loop
+
+
+13-db.posts.findOne()
+this command print just one record form value in our table
+
+14-db.posts.update({title : 'post Two'} ,{
+	title : 'post two',
+	},
+	{
+	upsert : true
+	}
+)
+this command to update value in our table 
+note: upsert mean if you dont have this record in database add this value 
+
+15-db.posts.remove({title:'post two'})
+this command to remove value from our table 
+
+16-db.posts.createIndex({title:'text'})
+this command to make value indexed
+
+17-db.posts.find({
+$text : {
+	$search : "\" post 0 "\"
+}
+})
+this command to search in table
+
+17-db.posts.find({ likes : {$gt :6}})
+this command show the records value grater than 6 in our table
+
+note : 
+gt maen grater than
+gte maen grater than or equal
+lt maen less than
