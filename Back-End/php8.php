@@ -18,12 +18,12 @@ $getdata = new fetchdata();
 echo $getdata->data('hi'); // output : hi
 
 // explain more 
-class fetchdata {
+class fetchdata2 {
 
     public function data(? /* this mean the string type is optional*/ 
-    string /* this mean the data type of param should be string */ $data)
+    int /* this mean the data type of param should be string */ $data)
      :int /* this mean the function should return int dat type  */
-     :void // note this new in php 8 mean the function dont return 
+    // :void  note this new in php 8 mean the function dont return 
      {
         return $data ;
     }
@@ -56,7 +56,7 @@ echo $newanimal->dogs(
 
 // accessing direct to function from object
 
-class animals {
+class animals2 {
 
     public function dogs($dogname){
         return $dogname;
@@ -70,7 +70,7 @@ echo $newanimal = (new animals())->dogs('rex');
 
 // in php 7 we was use switch but in php 8 we use match
 
-$name = hadi ;
+$name = 'hadi' ;
 
 $message = match($name){
     "hadi" , "ahmad" => "male ",
@@ -88,13 +88,13 @@ echo $message ; // output : male
 
 // in php 7 
 
-class phone {
+class phone2 {
     private $ip ;
     private $mac ;
 
     public function __construct($ip , $mac){
         $this->ip = $ip ;
-        $this->mac = $mac
+        $this->mac = $mac;
 
     }
 }
@@ -108,25 +108,25 @@ class phone {
     private  $ip ,
     private $mac){
       $this->ip = $ip ;
-      $this->mac = $mac
+      $this->mac = $mac;
     }
 
 }
 
-}
+
 
 /* 5-mixed type  */
 
 // in php 8 we have a new dat type is (mixed) thats contain all the data type
 
-class fetchdata {
+class fetchdata3 {
 
     public function data(mixed $data){
         return $data ;
     }
 }
 
-$getdata = new fetchdata();
+$getdata = new fetchdata3();
 
 echo $getdata->data('hi'); //  output : hi
 
@@ -140,7 +140,7 @@ echo $getdata->data(1);   //  output :  1
 
 // in php 8 we dont need to write if ($condtion !== null ) we just write null safe operator (?)
 
-class fetchdata {
+class fetchdata4 {
 
     public function data(mixed $data){
         return $data ;
@@ -149,32 +149,33 @@ class fetchdata {
     
 }
 
-$getdata = new fetchdata();
+$getdata = new fetchdata4();
 
-echo $getdata?->mnull();
+echo $getdata?->data(null);
 
 
 
-/* 7-Trailing comma */
+/* 7-Create DateTime Objects from Interface: 
 
-// in php 8 no problem if we forget the comma (,) after param :)
+PHP 8 allows you to create DateTime objects directly from the DateTimeInterface interface. 
+This enhances interoperability and flexibility in working with date and time objects.
 
-public function test(test , ){
+*/
+$dateTime = DateTime::createFromInterface($dateTimeInterface);
 
-}
 
 /* 8-Stringable interface */
 
 // in php 8 we can make the object to string
 
-class fetchdata {
+class fetchdata5 {
 
     public function __tostring():string{
         return 'hii';
     }
 }
 
-$getdata = new fetchdata();
+$getdata = new fetchdata5();
 
 function test(string|stringable $data){
     return $data;
@@ -189,7 +190,7 @@ test($getdata);
 $phrase = "i love php " ;
 $word = "php";
 
-echo str_contains($phrase , $word) // output 1 
+echo str_contains($phrase , $word); // output 1 
 
 /* 10-str_start_with */
 
@@ -200,14 +201,14 @@ $word  = "php";
 $word1 = "i";
 $word2 = "I";
 
-echo str_start_with($phrase , $word) // output 0
+echo str_starts_with($phrase , $word); // output 0
 
-echo str_start_with($phrase , $word1) // output 1
+echo str_starts_with($phrase , $word1); // output 1
 
-echo str_start_with($phrase , $word2) // output 0
+echo str_starts_with($phrase , $word2); // output 0
 
 
-/* 10-str_end_with */
+/* 11-str_end_with */
 
 // in php 8 we have new function check if the end start with word or not
 
@@ -216,8 +217,21 @@ $word  = "php";
 $word1 = "i";
 $word2 = "I";
 
-echo str_end_with($phrase , $word) // output 1
+echo str_ends_with($phrase , $word); // output 1
 
-echo str_end_with($phrase , $word1) // output 0
+echo str_ends_with($phrase , $word1); // output 0
 
-echo str_end_with($phrase , $word2) // output 0
+echo str_ends_with($phrase , $word2); // output 0
+
+
+/* 12-str_contains */
+
+$phrase = "i love php" ;
+$word  = "php";
+$word1 = "i";
+$word2 = "I";
+
+echo str_contains($phrase , $word); // output 1
+
+
+// for more info read this article https://stitcher.io/blog/new-in-php-8

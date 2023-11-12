@@ -6,11 +6,8 @@
 */
 
 
-/*
- Class    
-
- a classes is like arrays but dont have key and value , its have property and method 
- like ex :
+/*  
+  classes is like arrays but dont have key and value , its have property and method 
 */
 
 
@@ -21,7 +18,7 @@ class Ship                          // this is class
 
     public function sayhello(){     // this is method
 
-    	echo "hello word";
+    	return "hello word";
     }
 
       public function getName(){     // this method 
@@ -36,7 +33,7 @@ $ship = new Ship();                  // this is object
 
 $ship_name =  $ship->name = 'hadi' ; // add to property value 
 
-echo $ship_name ;                         // print value of property  : hadi
+echo $ship_name ;                    // print value of property  : hadi
 
 $ship_hello = $ship->sayhello();     // get the method 
 
@@ -50,7 +47,7 @@ echo $ship_name_class;               // print the method : hadi
 
 // getters and setters 
 // to know more about it we have this example 
-class phone {
+class phone1 {
     private $ip ;
     private $mac ;
 
@@ -63,7 +60,7 @@ class phone {
     }
 }
 
-$newPhone = new phone();
+$newPhone = new phone1;
 $newPhone->setIp(20);
 echo $newPhone->getIp();
 

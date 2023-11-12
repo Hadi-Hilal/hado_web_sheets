@@ -1,31 +1,28 @@
 <?php
 /*
-----------------------------------------
------------PHP esentials SHEETS CHEAT ----------
-----------------------------------------
-*/
+-----------------------------------------------
+-----------PHP esentials SHEETS CHEAT ---------
+-----------------------------------------------
 
-
-/*
 ===========
- variables
+variables
 ===========
 */
 $myvar  = "example";   // string variable
 $mynum  = 123;         // number variable
-$mynum .= 973;         // this . add another value to variable
+$mynum .= 973;         // this . add concat mean wil print 123973
 $double = 3.5;         // doble variable
 $boo    = false;       // boolian data type 
 $null   = Null ;       // null data type
-$__name = 'hadi'
- 
-//note : the variable shouldnot be start in numper but can start with  under score _
-// printing variables
-echo $myvar;
+$__name = 'hadi';
+
+//note : the variable shouldnot be start in numper but can start with under score _
+
+echo $myvar; // printing variable
 
 /*
 ===========
- comments 
+Comments 
 ===========
 */
 // this is one line comment
@@ -33,73 +30,119 @@ echo $myvar;
 /* this multi line comments */
 
 
-/*
-===========
- data type  
-============
-*/
-
-$var  = " it is a string" // [1]-string
-$var1 = 5                 // [2]-int
-$var2 = true              // [3]-boolean
-$var3 = 10.3              // [4]-floating
-$var4 = array(1,3,4)      // [5]-array
-$var5 = { 1, 2,3}         // [6]-object
-$var4 = null              // [7]-null
 
 /*
 ===========
- constants  
+Constants  
 ===========
   we have 2 ways to define constans in php
-  1- define(name , value , case-insenstife)
-   case-insenstife by default false
+  1- define(name , value )
   2- const name  = value
    note : why we use define 
    ----
    1- because it will be assigin global 
    2- because it cant re assigned
-   3-
 */
 
-define('NAME', 'ahmad' , true) ;
-const NAME  = 'SAEED'
-// global constansts in php 
-__FILE__                 // This print the name file
-__DIR__                  // This print the folder the file
-__LINE__                 // This print the line 
+define('NAME', 'ahmad') ;
+const NAME2  = 'SAEED';
+
+// Magic Constants:
+__LINE__; # print The current line number of the file.
+__FILE__; # print The full path and filename of the file.
+__DIR__;  # print The directory of the file.
+__FUNCTION__; # print The function name.
+__CLASS__; # print The class name.
+__TRAIT__; #print The trait name.
+__METHOD__; #print The class method name.
+__NAMESPACE__; #print The name of the current namespace.
+
+echo PHP_VERSION; // Outputs the PHP version
+echo PHP_OS;      // Outputs the operating system PHP is running on
+
+/*
+===========
+Data Type  
+============
+*/
+
+$var  = " it is a string"; // [1]-string
+$var1 = 5;                 // [2]-int
+$var2 = true;              // [3]-boolean
+$var3 = 10.3;              // [4]-floating
+$var4 = array(1,3,4);      // [5]-array
+$var5 = new DateTime();    // [6]-object
+$var4 = null;              // [7]-null
+
+echo gettype($var); # this will return data type 
+
+/*
+===========
+Type Casting 
+============
+  mean change to data type  
+
+  = "boolean" or "bool"
+  = "integer" or "int"
+  = "float" or "double" or "real"
+  = "string"
+  = "array"
+  = "object"
+  = "null" or unset
+*/
+$number = "42";
+settype($number, "int");
+// Now $number is an integer
+
+$floatNumber = 3.14;
+settype($floatNumber, "string");
+// Now $floatNumber is a string
+
+$booleanVar = 1;
+settype($booleanVar, "bool");
+// Now $booleanVar is a boolean
+
+$arrayVar = "hello";
+settype($arrayVar, "array");
+// Now $arrayVar is an array
+
+$someVar = "value";
+settype($someVar, "null");
+// Now $someVar is null
+
+
 
 
 /*
 ===========
- condations  
+Condations  
 ===========
 */
+$condition = 'here is the condition';
 
-if (condition) {
+if ($condition) {
   # code...
-}elseif (condition) {
+}elseif ($condition) {
   # code...
 }else{
 
 }
 
-    /*
-    ===========
-     operators  
-    ===========
-    */
+/*
+================
+  Operators  
+===============
+*/
 
 /*
- 
- Arithmetic operators
- --------------------
+Arithmetic operators
+--------------------
   [+]  addition      100 + 20 = 120
   [-]  subtraction   100 - 20 = 80
   [*]  multioliction 100 * 20 = 2000
   [/]  division      100 / 20 = 5
   [%]  moduls        100 % 20 = 0
-  [**] exp           10 ** 2  = 100
+  [**] exp           10 ** 2  = 100  mean 10 raised to the power of 2
 
 */
 
@@ -211,7 +254,7 @@ for($i = 1 ; $i <=20 ; $i++){
 
 }
 
-$a =1 
+$a =1 ;
 
 while($a < 20){
   // statment 
@@ -220,9 +263,9 @@ while($a < 20){
 
 $i = 1 ;
 do{
-  echo $i
-  $i++
-}while($i <= 20 )
+  echo $i;
+  $i++;
+}while($i <= 20 );
 
 /*
 ===========
@@ -264,15 +307,6 @@ sayHello('hadi');
 //hello hadi
 
 
-function  sayHello($name){
-
-   return 'hello' . $name; // when we write return yhe func will stop
-}
-
-echo sayHello('hadi');
-
-//output:
-//hello hadi
 
 
 /*
@@ -283,7 +317,7 @@ switch(Experssion){
   //code here 
   break
 
-   default:
+  default:
   //code here 
   break
 }
