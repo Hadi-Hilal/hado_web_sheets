@@ -1,86 +1,76 @@
 <?php
 /*
 -----------------------------------------------
------------PHP esentials SHEETS CHEAT ---------
+----------- PHP Essentials SHEET CHEAT ---------
 -----------------------------------------------
 
-===========
-variables
-===========
+=========== VARIABLES ===========
 */
-$myvar  = "example";   // string variable
-$mynum  = 123;         // number variable
-$mynum .= 973;         // this . add concat mean wil print 123973
-$double = 3.5;         // doble variable
-$boo    = false;       // boolian data type 
-$null   = Null ;       // null data type
-$__name = 'hadi';
 
-//note : the variable shouldnot be start in numper but can start with under score _
+$myvar  = "example";  // string variable
+$mynum  = 123;         // number variable
+$mynum .= 973;         // this . add concat means it will print 123973
+$double = 3.5;         // double variable
+$boo    = false;       // boolean data type
+$null   = Null;        // null data type
+$__name = 'hadi';      // variable name example
+
+// Note: the variable should not start with a number but can start with an underscore (_)
 
 echo $myvar; // printing variable
 
 /*
-===========
-Comments 
-===========
+=========== COMMENTS ===========
 */
-// this is one line comment
-#  this one line comment
-/* this multi line comments */
 
-
+// This is one-line comment
+# This is another one-line comment
+/* This is a multi-line comment */
 
 /*
-===========
-Constants  
-===========
-  we have 2 ways to define constans in php
-  1- define(name , value )
-  2- const name  = value
-   note : why we use define 
-   ----
-   1- because it will be assigin global 
-   2- because it cant re assigned
+=========== CONSTANTS ===========
+We have 2 ways to define constants in PHP:
+1- define(name, value)
+2- const name = value
+
+Note: Why use define()?
+1- It will be assigned globally.
+2- It can't be reassigned.
 */
 
-define('NAME', 'ahmad') ;
-const NAME2  = 'SAEED';
+define('NAME', 'ahmad');
+const NAME2 = 'SAEED';
 
 // Magic Constants:
-__LINE__; # print The current line number of the file.
-__FILE__; # print The full path and filename of the file.
-__DIR__;  # print The directory of the file.
-__FUNCTION__; # print The function name.
-__CLASS__; # print The class name.
-__TRAIT__; #print The trait name.
-__METHOD__; #print The class method name.
-__NAMESPACE__; #print The name of the current namespace.
+__LINE__;  // Print the current line number of the file.
+__FILE__;  // Print the full path and filename of the file.
+__DIR__;   // Print the directory of the file.
+__FUNCTION__; // Print the function name.
+__CLASS__;    // Print the class name.
+__TRAIT__;    // Print the trait name.
+__METHOD__;   // Print the class method name.
+__NAMESPACE__; // Print the name of the current namespace.
 
 echo PHP_VERSION; // Outputs the PHP version
 echo PHP_OS;      // Outputs the operating system PHP is running on
 
 /*
-===========
-Data Type  
-============
+=========== DATA TYPES ===========
 */
 
-$var  = " it is a string"; // [1]-string
-$var1 = 5;                 // [2]-int
-$var2 = true;              // [3]-boolean
-$var3 = 10.3;              // [4]-floating
-$var4 = array(1,3,4);      // [5]-array
-$var5 = new DateTime();    // [6]-object
-$var4 = null;              // [7]-null
+$var  = "it is a string"; // [1] - string
+$var1 = 5;                 // [2] - int
+$var2 = true;              // [3] - boolean
+$var3 = 10.3;              // [4] - float
+$var4 = array(1, 3, 4);    // [5] - array
+$var5 = new DateTime();    // [6] - object
+$var4 = null;              // [7] - null
 
-echo gettype($var); # this will return data type 
+echo gettype($var); // This will return the data type
 
 /*
-===========
-Type Casting 
-============
-  mean change to data type  
+=========== TYPE CASTING ===========
+Means changing the data type
 
   = "boolean" or "bool"
   = "integer" or "int"
@@ -90,236 +80,167 @@ Type Casting
   = "object"
   = "null" or unset
 */
+
 $number = "42";
-settype($number, "int");
-// Now $number is an integer
+settype($number, "int"); // Now $number is an integer
 
 $floatNumber = 3.14;
-settype($floatNumber, "string");
-// Now $floatNumber is a string
+settype($floatNumber, "string"); // Now $floatNumber is a string
 
 $booleanVar = 1;
-settype($booleanVar, "bool");
-// Now $booleanVar is a boolean
+settype($booleanVar, "bool"); // Now $booleanVar is a boolean
 
 $arrayVar = "hello";
-settype($arrayVar, "array");
-// Now $arrayVar is an array
+settype($arrayVar, "array"); // Now $arrayVar is an array
 
 $someVar = "value";
-settype($someVar, "null");
-// Now $someVar is null
-
-
-
+settype($someVar, "null"); // Now $someVar is null
 
 /*
-===========
-Condations  
-===========
+=========== CONDITIONS ===========
 */
+
 $condition = 'here is the condition';
 
 if ($condition) {
-  # code...
-}elseif ($condition) {
-  # code...
-}else{
-
+    // code...
+} elseif ($condition) {
+    // code...
+} else {
+    // code...
 }
 
 /*
-================
-  Operators  
-===============
+=========== OPERATORS ===========
 */
 
 /*
 Arithmetic operators
 --------------------
-  [+]  addition      100 + 20 = 120
-  [-]  subtraction   100 - 20 = 80
-  [*]  multioliction 100 * 20 = 2000
-  [/]  division      100 / 20 = 5
-  [%]  moduls        100 % 20 = 0
-  [**] exp           10 ** 2  = 100  mean 10 raised to the power of 2
-
+  [+]  addition       100 + 20 = 120
+  [-]  subtraction    100 - 20 = 80
+  [*]  multiplication 100 * 20 = 2000
+  [/]  division       100 / 20 = 5
+  [%]  modulus        100 % 20 = 0
+  [**] exponentiation 10 ** 2 = 100 (10 raised to the power of 2)
 */
 
 /*
- 
- Assignment operators
- --------------------
-
- $var1   = 200
- $var1  +=100 => thats mean 200 + 100 = 300
- 
- $var1   = 200
- $var1  -=100 => thats mean 200 - 100 = 100
-
- $var1  = 200
- $var1  *=100 => thats mean 200 * 100 = 20000
-
- $var1  = 200
- $var1  /=100 => thats mean 200 / 100 = 2
-  
-*/
-
- /*
- 
- Comparison operators
- --------------------
-
- [==]   Equals            this check if the comparison elements have a same value 
- [!=]   Not equals        this check if the comparison elements dont have a same value
- [<>]   Not equals        this check if the comparison elements dont have a same value
- [===]  Identical         this check if the comparison elements have a same value and same data type
- [!==]  Not Identica      this check if the comparison elements dont have a same value and same data type
- [<]    Less than
- [<=]   Less than or equals
- [>]    Larger than
- [>=]   Larger than or equals
+Assignment operators
+--------------------
+  $var1   = 200
+  $var1  += 100 => 200 + 100 = 300
+  $var1   = 200
+  $var1  -= 100 => 200 - 100 = 100
+  $var1  = 200
+  $var1  *= 100 => 200 * 100 = 20000
+  $var1  = 200
+  $var1  /= 100 => 200 / 100 = 2
 */
 
 /*
- 
- Increament operators
- --------------------
-
- [++$a] pre-increament
- [$a++] post-increament
-  
- [--$a] pre-decreament
- [$a--] post-decreament
-  
-*/
-
- /*
- 
- Logical operators
- --------------------
-
- [and] condition 1 and condition 2 and all condition...etc should be true
- [&&]  condition 1 and condition 2 and all condition...etc should be true
-
- [xor] condition 1 should be true but not not all condition 
- [or]  condition 1 or condition 2 or all condition...etc should be true
- [||]  condition 1 or condition 2 or all condition...etc should be true
-
- [!]   not 
-
-*/
-
- /*
- 
- Error operator
- --------------------
-
- [@] we add it before function to dont show the error 
-
- examples:
-
- $file = @fopen('test.txt' , "r") or die ('this file is not found')
-
- (@include('index.php')) or die('no such file');
-
+Comparison operators
+--------------------
+  [==]   Equals           checks if the values are the same
+  [!=]   Not equals       checks if the values are not the same
+  [===]  Identical        checks if values and data types are the same
+  [!==]  Not Identical    checks if values and data types are not the same
+  [<]    Less than
+  [<=]   Less than or equals
+  [>]    Greater than
+  [>=]   Greater than or equals
 */
 
 /*
-
-===========
- for loop
-===========
-exp1 = intitial counter
-exp2 = condition
-exp3 = increment
-
-for(exp1 ; exp2 ; exp3){
-  // statment 
-}
-
-while( Expersion){
-  // statment 
-}
-
-do{
-  // statment 
-}while(Expersion )
-
+Increment operators
+--------------------
+  [++$a] pre-increment
+  [$a++] post-increment
+  [--$a] pre-decrement
+  [$a--] post-decrement
 */
 
-for($i = 1 ; $i <=20 ; $i++){
-
-  // statment 
-
-}
-
-$a =1 ;
-
-while($a < 20){
-  // statment 
-}
-
-
-$i = 1 ;
-do{
-  echo $i;
-  $i++;
-}while($i <= 20 );
-
 /*
-===========
- foreach
-===========
-
-syantx[1] for indexed arrays
-foreach($array as $value){
-  code here 
-}
-
-syantx[2] for Associative arrays
-foreach($array as $ke => $value){
-  code here 
-}
+Logical operators
+--------------------
+  [and]  All conditions must be true
+  [&&]   All conditions must be true
+  [xor]  Only one condition should be true
+  [or]   At least one condition must be true
+  [||]   At least one condition must be true
+  [!]    Negates a condition
 */
 
-
-
 /*
-===========
- functions
-===========
+Error operator
+--------------------
+  [@]  Add it before a function to suppress errors
 
-function name ($arg1 , $arg2 ....){
-  
-  // body function here
-}
+Examples:
+  $file = @fopen('test.txt', "r") or die('this file is not found');
+  (@include('index.php')) or die('no such file');
 */
 
-function  sayHello($name){
+/*
+=========== LOOPING ===========
+*/
 
-    echo 'hello' . $name;
+for ($i = 1; $i <= 20; $i++) {
+    // statement
 }
 
-sayHello('hadi');
+$a = 1;
+while ($a < 20) {
+    // statement
+}
 
-//output:
-//hello hadi
-
-
-
+$i = 1;
+do {
+    echo $i;
+    $i++;
+} while ($i <= 20);
 
 /*
+=========== FOREACH ===========
+*/
 
-switch(Experssion){
-  
-  case :
-  //code here 
-  break
-
-  default:
-  //code here 
-  break
+# Syntax for indexed arrays
+foreach ($array as $value) {
+    // code here
 }
 
- */
+# Syntax for associative arrays
+foreach ($array as $key => $value) {
+    // code here
+}
+
+/*
+=========== FUNCTIONS ===========
+*/
+
+function sayHello($name)
+{
+    echo 'Hello ' . $name;
+}
+
+sayHello('hadi'); // Output: Hello hadi
+
+/*
+=========== SWITCH ===========
+*/
+
+switch ($expression) {
+    case 'value1':
+        // code here
+        break;
+    
+    case 'value2':
+        // code here
+        break;
+
+    default:
+        // code here
+        break;
+}
+
+

@@ -1,169 +1,198 @@
 /**
- * oop js sheet cheat
- * Created by hadi .
+ * OOP JavaScript Cheat Sheet
+ * Created by Hadi
  */
 
-/*
-formating object 
-1- literal 
-*/
+// -----------------------------------------------------------------------------
+// Object Creation Methods
+// -----------------------------------------------------------------------------
 
-let user = {
-  firstName: "hadi",
-
-  lastName: "ali",
-
-  adresess: {
-    all: () => ` eg and ksa`,
+/**
+ * 1. Object Literal Syntax
+ */
+const user = {
+  firstName: "Hadi",
+  lastName: "Ali",
+  addresses: {
+    all: () => "Egypt and KSA",
   },
   fullName() {
-    return ` hello ${user.firstName} ${user.lastName}`;
+    return `Hello, ${this.firstName} ${this.lastName}`;
   },
 };
 
-// acessing to element
+// Accessing properties and methods
+console.log(user.firstName); // "Hadi"
+console.log(user.fullName()); // "Hello, Hadi Ali"
+console.log(user.addresses.all()); // "Egypt and KSA"
+console.log(user["firstName"]); // "Hadi" (Bracket notation)
 
-console.log(user.firstName);
-console.log(user.fullName());
-console.log(user.adresess.all()); // dot notation
-console.log(user.['firstName']);  // bracket notation
+// -----------------------------------------------------------------------------
 
-
-/*
-define object  
-*/
-
-let user = new Object();
-
-user.name = "hadi";
-
-user.defo = function () {
-  return ` hello  ${user.name} `;
+/**
+ * 2. Creating Objects with `new Object`
+ */
+const user2 = new Object();
+user2.name = "Hadi";
+user2.greet = function () {
+  return `Hello, ${this.name}`;
 };
 
-console.log(user.name);
+console.log(user2.name); // "Hadi"
+console.log(user2.greet()); // "Hello, Hadi"
 
+// -----------------------------------------------------------------------------
 
-/*
- create object  
-*/
-
-let sellobj = new Object();
-
-sellobj = {
-  discount: true,
-  defo: function () {
-    return ` you ${this.discount ? "" : "dont"} have discount`;
-  },
+/**
+ * 3. Assigning Properties to Objects
+ */
+const source = {
+  prop1: "Value1",
+  prop2: "Value2",
 };
 
-console.log(sellobj.defo());
-
-/*
-  assign  object  
-*/
-
-let src = {
-  prop1: "val1",
-  prop2: "val2",
+const target = {
+  prop3: "Value3",
 };
 
-let target = {
-  prop3: "val3",
-};
-
-Object.assign(target, src);
+// Merge source properties into target
+Object.assign(target, source);
 
 console.log(target);
+// Output: { prop3: "Value3", prop1: "Value1", prop2: "Value2" }
 
-/*
-  delete val from object  
-  =?note : we cant delete object or any variable 
-*/
+// -----------------------------------------------------------------------------
 
-let src = {
-  prop1: "val1",
-  prop2: "val2",
+/**
+ * 4. Deleting Properties from Objects
+ * Note: Variables or entire objects cannot be deleted.
+ */
+const obj = {
+  prop1: "Value1",
+  prop2: "Value2",
 };
 
-delete src.prop2;
-console.log(src);
+delete obj.prop2; // Deletes the property
+console.log(obj); // { prop1: "Value1" }
 
-/*
-  for in loop
-*/
+// -----------------------------------------------------------------------------
 
-let src = {
-  prop1: "val1",
-  prop2: "val2",
+/**
+ * 5. Looping Over Object Properties
+ */
+const loopObj = {
+  prop1: "Value1",
+  prop2: "Value2",
 };
 
-for( let info in src){
-  console.log(info);
+for (let key in loopObj) {
+  console.log(`${key}: ${loopObj[key]}`);
+}
+// Output:
+// prop1: Value1
+// prop2: Value2
+
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// Constructors and Classes
+// -----------------------------------------------------------------------------
+
+/**
+ * 6. Creating Objects Using Constructors
+ */
+function Phone(serial, color) {
+  this.serial = serial;
+  this.color = color;
 }
 
-/*
-   building constructor
-*/
+const phone1 = new Phone(123, "Red");
+console.log(phone1);
+// Output: Phone { serial: 123, color: 'Red' }
 
-function Phone(serial , color){
-  this.serial = serial ;
-  this.color = color ;
+// -----------------------------------------------------------------------------
+
+/**
+ * 7. Adding Prototypes to Constructor Functions
+ */
+function User() {
+  this.name = "Hadi";
+  this.age = 40;
 }
 
-let phone1 = new Phone(123 , 'red')
+User.prototype.addTitle = function () {
+  return "Hello";
+};
 
-console.log(phone1)
+console.log(User.prototype);
+// Output: { addTitle: [Function (anonymous)] }
 
-/*
-   adding new prottype
-*/
-function User () {
-  this.name = 'hadi' ;
-  this.age = 40
-}
+// -----------------------------------------------------------------------------
 
-
-User.prototype.addTitle = function (){
-  return 'hello'
-}
-
-console.log(User.prototype)
-
-/*
-   create error in js
-*/
-
-throw new Error ('its error')
-
-/*
-   create constructor class
-*/
-class User {
-  constructor() { // here property
-    this.name = 'hadi';
-    this.age = 40;
+/**
+ * 8. Creating Objects Using Classes
+ */
+class UserClass {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
   }
-  addTitle() { // here method
-    return 'hello';
-  }
-}
 
-/*
-   getters and setters
-*/
-class User {
-  constructor() { // here property
-    this.name = 'hadi';
-    this.age = 40;
-  }
-  get addTitle() { // here method
-    return 'hello';
-  }
-  set addTitle(newName) { // here method
-    this.name = newName;
+  greet() {
+    return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
   }
 }
 
+const user3 = new UserClass("Hadi", 27);
+console.log(user3.greet());
+// Output: "Hello, my name is Hadi and I am 27 years old."
 
+// -----------------------------------------------------------------------------
 
+/**
+ * 9. Getters and Setters in Classes
+ */
+class UserWithGetters {
+  constructor(name, age) {
+    this._name = name;
+    this._age = age;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    this._name = newName;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(newAge) {
+    if (newAge > 0) this._age = newAge;
+  }
+}
+
+const user4 = new UserWithGetters("Hadi", 27);
+console.log(user4.name); // "Hadi"
+user4.name = "Ali";
+console.log(user4.name); // "Ali"
+
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// Error Handling
+// -----------------------------------------------------------------------------
+
+/**
+ * 10. Creating Errors in JavaScript
+ */
+try {
+  throw new Error("This is a custom error!");
+} catch (error) {
+  console.error(error.message); // "This is a custom error!"
+}
+
+// -----------------------------------------------------------------------------

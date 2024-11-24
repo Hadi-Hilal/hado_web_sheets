@@ -2,318 +2,225 @@
 
 /*
 ================
-math methods  
-================
-*/
-$arr = [100 , 2 , 200 , 4 , 33];
-
-pow(base, exp); 
-pow (10 , 2);  //output : 100
-
-min(values);
-min($arr);     //output : 2
-
-max(values);
-max($arr);     //output : 200
-
-round(val);
-round(3.4);    //output : 3
-
-ceil(value);
-ceil(3.4);     //output : 4
-
-floor(value);
-floor(3.4);    // output : 3
-
-
-
-/*
-================
- array methods  
+Math Methods  
 ================
 */
 
+$arr = [100, 2, 200, 4, 33];
 
-$lang = ['ar' , 'en' , 'tr'];
+echo pow(10, 2); // Output: 100
 
-count($lang); // this print count element in array 
-count($lang); // output : 3
+echo min($arr); // Output: 2
+echo max($arr); // Output: 200
 
-in_array(needle /*the word we want*/, haystack /*the array name */ , type /*this mean case insenstive or not */ );  
-// this method search in array like ex;
-in_array('ar' , $lang);
-
-array_search(needle /*the word we want*/, haystack /*the array name */ , type /*this mean case insenstive or not */ );  
-// this method search in array and print the index like ex;
-array_search('ar' , $lang); // output : 1
-
-array_key_exist(needle /*the key we want*/, haystack /*the array name */ );  
-// this method search in assoiative array for key ex;
-array_key_exist('ar' , $lang); // output : nothing
-
-array_push($lang /*the array name */, 'sp' /*the value */ ); // this method add value to array but in last index
-
-array_push($lang , 'sp');  // output : $lang = ['ar' , 'en' , 'tr' , 'sp'];
-
-array_unshift($lang /*the array name */, 'sp' /*the value */ ); // this method add value to array but in first index
-
-array_unshift($lang , 'sp');  // output : $lang= ['sp' ,'ar' , 'en' , 'tr'];
-
-array_pop(lang /*the array name */ ); // this method remove last value in array 
-
-array_pop($lang);  // output : $lang= ['ar' , 'en' ];
-
-array_shift($lang /*the array name */ ); // this method remove first value in array 
-
-array_shift($lang);  // output : $lang= ['en' , 'tr'];
-
-sort($lang /*the array name */ , type /*the type sort */); // this method sort index array 
-
-sort($lang);  // output : $lang= ['ar' , 'en' , 'tr'];
-
-rsort($lang /*the array name */ , type /*the type sort */); // this method reverse sort index array 
-
-rsort($lang);  // output : $lang= ['tr' , 'en' , 'ar'];
-
-asort($lang /*the array name */ , type /*the type sort */); // this method sort assoiatve array 
-
-asort($lang); 
-
-arsort($lang /*the array name */ , type /*the type sort */); // this method reverse assoiatve array 
-
-ksort($lang /*the array name */ , type /*the type sort */); // this method sort key assoiatve array 
-
-krsort($lang /*the array name */ , type /*the type sort */); // this method reverse key assoiatve array 
-
-shuffle($lang/*the array name */ ); // this method make a random  array 
-
-shuffle($lang); // output : $lang= ['en' , 'tr'  ,'ar'];
-
-array_sum($lang /*the array name */ ); // this method sum the values in  array 
-
-array_rand($lang /*the array name */ , number /*the number element we want to print it */  ); // this method show a random index from our array 
-
-array_rand($lang ,  2); // output : $lang= [ 'tr'  ,'ar'];
-
-array_unique($lang /*the array name */ ); // this method make our array a unique
-
+echo round(3.4); // Output: 3
+echo ceil(3.4); // Output: 4
+echo floor(3.4); // Output: 3
 
 /*
 ================
- string methods  
+Array Methods  
+================
+*/
+
+$lang = ['ar', 'en', 'tr'];
+
+echo count($lang); // Output: 3
+
+echo in_array('ar', $lang) ? 'Found' : 'Not Found'; // Check if 'ar' exists
+
+echo array_search('ar', $lang); // Output: 0
+
+echo array_key_exists('ar', $lang) ? 'Exists' : 'Does not exist'; // Output: Does not exist for non-associative arrays
+
+array_push($lang, 'sp'); // Adds 'sp' to the end
+print_r($lang); // Output: ['ar', 'en', 'tr', 'sp']
+
+array_unshift($lang, 'sp'); // Adds 'sp' to the beginning
+print_r($lang); // Output: ['sp', 'ar', 'en', 'tr']
+
+array_pop($lang); // Removes last element
+print_r($lang); // Output: ['sp', 'ar', 'en']
+
+array_shift($lang); // Removes first element
+print_r($lang); // Output: ['ar', 'en']
+
+sort($lang); // Sorts the array
+print_r($lang); // Output: ['ar', 'en', 'sp', 'tr']
+
+rsort($lang); // Reverse sort the array
+print_r($lang); // Output: ['tr', 'sp', 'en', 'ar']
+
+asort($lang); // Sort associative arrays by value (if associative)
+arsort($lang); // Reverse sort associative arrays by value
+
+ksort($lang); // Sort associative arrays by key
+krsort($lang); // Reverse sort associative arrays by key
+
+shuffle($lang); // Shuffle array randomly
+print_r($lang);
+
+echo array_sum($arr); // Output: 339
+
+print_r(array_rand($lang, 2)); // Output: Random keys from the array
+
+print_r(array_unique($lang)); // Removes duplicates
+
+/*
+================
+String Methods  
 ================
 */
 
 $str = 'hello am hadi';
-$arr = ['el1' , 'el2' , 'el3'];
+$arr = ['el1', 'el2', 'el3'];
 
+print_r(explode(" ", $str)); // Output: ['hello', 'am', 'hadi']
 
-explode(delimiter/* here sperator */, string /* here the string */ , limit  /* how many element in array we want */) ;
-// this method convert string to array ex:
-explode(" " , $str); // outpout array :[ hello , am , hadi]
+echo implode("-", $arr); // Output: el1-el2-el3
 
+echo join("-", $arr); // Output: el1-el2-el3
 
-implode(delimiter/* here sperator */, string /* here the array */ , limit  /* how many element in array we want */) ;
-// this method convert array to  string ex:
-implode("-" , $arr); // outpout string :el1-el2-el3
+print_r(str_split($str, 3)); // Output: ['hel', 'lo ', 'am ', 'had', 'i']
 
-join(delimiter/* here sperator */, string /* here the array */ , limit  /* how many element in array we want */); 
-// this method same to implode convert array to  string ex:
-join("-" , $arr); // outpout string :el1-el2-el3
+echo str_replace('hadi', 'ahmad', $str); // Output: hello am ahmad
 
-str_split(search /* here the string */, replace /* here starting  */, subject);
-// this method convert string yo array ex:
-str_split($str , 3); // outpout array :['hel' , 'lo ' , 'am ' , 'had' , 'i']
+echo str_repeat($str, 2); // Output: hello am hadihello am hadi
 
-str_replace(search /* here the word we want to search it */, replace /* here the word we want to rplace it  */, subject /* here the string */ , count /* here how many time we want */);
-// this method to search in string on word and replace it 
-str_replace('hadi' , 'ahmad' , $str); //output: hello am ahmad
+echo str_shuffle($str); // Randomizes the string
 
+echo strlen($str); // Output: 13
+echo $str[6]; // Output: a
 
-str_repeat(input /* here the string we want to repeat it */, multiplier /* here is the nuber */); 
-// this method repeat string
-str_repeat($str, 2); //output :'hello am hadi helo am hadi'
+echo addslashes($str); // Adds backslashes before special characters
 
-str_shuffle(str /* here the string we want to mix the capital in it */); // this method mix the elemnts in string every load
-str_shuffle($str); // output : eomildhaalh
+echo strip_tags($str); // Removes HTML tags
 
-strlen(str /* here the string we want to know length it */); // this method calc the length of string
-strlen($str); // output : 13
-$str[6]; // output : a
+echo strtolower($str); // Output: hello am hadi
+echo strtoupper($str); // Output: HELLO AM HADI
 
-addslashes(str /* here the string we want to add black slashe */); // this method to add black slashe
-strip_tags(str); // this method fillter the string frommany php or html elements
+trim($str); // Removes whitespace from both ends
 
-strtolower(str);  // this method make all the string lowercase
-strtoupper(str);  // this method make all the string capitalcase
+rtrim($str); // Removes whitespace from the right end
 
-/* char using 
+ltrim($str); // Removes whitespace from the left end
 
-\0 NULL
-\t Tab
-\n New Line
-\r Carriage Return
-\x0B vertical Tab
-" " space 
+echo str_word_count($str); // Output: 4
 
-\ this for string scaping 
+parse_str('a=1&b=2', $output); // Parses string into variables
 
- */
+echo nl2br("Line1\nLine2"); // Output: Line1<br>Line2
 
-  const str;
+echo strrev($str); // Output: idah am olleh
 
-trim(str , charlist); // this method can remove any thing fom string 
- 
-rtrim(str , charlist); // this method remove any thing fom string from right 
+echo substr($str, 0, 5); // Output: hello
 
-ltrim(str , charlist);// this method remove any thing fom string  fom string from left
-
-str_word_count(str); // this method calc words in string 
-
-parse_str(str);  // this method analayze the string and give us the result as variable
-
-nl2br('this function 
-print the string in multi lines
-');   // this method break the line
-
-strrev(str); // this reverse the string
-
-substr(str, start , length); // this functionn get piece from our string
-
-substr_count(haystack/*the string we want to search in it */, needle /* the word we want to search about it */);
-// we use this method to know how many times this word founded in the string 
-
+echo substr_count($str, 'a'); // Output: 2
 
 /*
 ===================
- file system method 
+File System Methods
 ===================
 */
 
 $filename = 'index.html';
 
-file_exists(filename);              // this method check if file found or not
-file_put_contents(filename, data , FILE_APPEND /* we use this to keep old data and dont waste it*/ | LOCK_EX ); 
- // this method add data to our file and if didnot found the file it will create it 
-file_get_contents(filename);        // this method show content from any page or path
-is_writable(filename);              // this method check if the file writable or not 
-mkdir(pathname);                    // this method make directory 
-rmdir(pathname);                    // this method remove directory 
-is_dir(filename);                   // this method check if we have dir or not 
-dirname(path);                      // this method print the directory name to to the path
-basename(path);                     // this method print the directory name to to the path
-pathinfo(path);                     // this method print the path info like dirname and base name ....
-copy(oldfile, newfile);             // this method copy the file 
-rename(oldfile, newfile) ;          // this method rename the file 
-unlink(filename) ;                  // this method delete the file 
-chmod(filename, mode);              // this method change file permission
-rmdir(dirname) ;                    // this method remove the directory 
-scandir(directory) ;                // this method show what the dir contain
-fopen(filename, mode);              /* this method open the files and edit of them
-modes: 
- r : read only start from the first line in file [file must be exist]
- r+: read and write and write from the first line in file [file must be exist]
- w : write only [open + clean the file (delete the content) + create the file if dose not exist]
- w+: read and write and delete the content [open + clean the file + create the file if dosenot exist]
- a : write only [open and write from the end file + create the file + create the file if dosenot exist]
- a+: read and write [open + create the file if dosenot exist]
- x : write only [open and write from the end file + the file should dose not exist]
- x+: read and write [open + create the file + the file should dose not exist]
-*/
-fread(fopen, filesize);              // this method read the file                          
-filesize(filename);                  // this method print file size any file
-fwrite(handle, string) ;             // this method write in the file   
-fclose(handle);                      // this method close the file 
+echo file_exists($filename) ? 'File exists' : 'File does not exist';
 
+file_put_contents($filename, 'Hello World!', FILE_APPEND | LOCK_EX);
 
-/*
-===============
- supper globals  
-===============
-*/
+echo file_get_contents($filename);
 
-$globals['variable_name'] = 'variable _ value';    // this way make the variablr global in any page 
-$_SERVER  ;                                         // this variable print server info in array
-// ex : if we want to print any element from server array $_SERVER['the eelment here ex : HTTP_HOST']
-$_GET;                                              // this variable use for get  method
-$_post;                                             // this variable use for post method
-$_request;                                          // this variable use with any request 
+echo is_writable($filename) ? 'Writable' : 'Not writable';
+
+mkdir('new_folder');
+
+rmdir('new_folder');
+
+echo is_dir($filename) ? 'Is directory' : 'Not a directory';
+
+echo dirname($filename); // Output: directory name
+echo basename($filename); // Output: index.html
+
+print_r(pathinfo($filename));
+
+copy('oldfile.html', 'newfile.html');
+rename('oldfile.html', 'renamedfile.html');
+
+unlink($filename);
+
+chmod($filename, 0755);
+
+scandir('folder_name');
+
+$handle = fopen($filename, 'r');
+echo fread($handle, filesize($filename));
+fclose($handle);
+
+echo filesize($filename);
+
+fwrite($handle, 'Hello PHP');
+fclose($handle);
 
 /*
 ===============
-   cookies 
+Super Globals  
 ===============
 */
 
-setcookie(name , value , expire , path , domain , secure , httponly);
+$globals['variable_name'] = 'variable_value';
+
+echo $_SERVER['HTTP_HOST']; // Example of $_SERVER
+
+echo $_GET['name']; // Example of $_GET
+
+echo $_POST['name']; // Example of $_POST
 
 /*
- name    : the name of the cookie
- value   : content of the cookie 
- expire  : time the cookie 
- path    ; where the path want cookie work 
- domain  : the name of domain
- secure  : IF IT TRUE thats mean just wiil send cookie with http 
- httponly: if true thats mean its dwill dont work with js files
- ex :
+===============
+Cookies 
+===============
 */
 
-setcookie('school' ,  'chanel' , time() + 1000 ,  '/' , 'localhost' , TRUE , TRUE);
-
+setcookie('school', 'chanel', time() + 1000, '/', 'localhost', true, true);
 
 /*
-===========
-   Date 
-===========
+===============
+Date 
+===============
 */
 
-date_default_timezone_set(timezone_identifier);                 // this function set a time zone
-date_default_timezone_get(timezone_identifier);                 // this function get a time zone
-date(format , timestamp);                                       // this function make format date
-/*
-   Date format 
-   Y year   ex 2015
-   y year   ex 15
-   M month  ex 10
-   m month  ex Oct
-   D day    ex Thu
-   d day    ex 23
-   Js       ex 23th
-   to learn more about format we have this link https://www.php.net/manual/en/function.date.php
-*/
-
-
+date_default_timezone_set('America/New_York');
+echo date('Y-m-d H:i:s'); // Output: Current date and time
 
 /*
-===========
- functions  
-===========
+===============
+Functions 
+===============
 */
-gettype($var);                          // this func get type of the element
-htmlspecialchars($param);              // this function convert html element to text
-var_dump();                            // this print the assivtive array 
-ucwords();                             // this function make the text uppercase                 
-count();                               // sum count elements in array or object
-print_r();                              // this function print the array          
-sleep(seconds);                         // make delay to server before execute the code but take second parmeter
-usleep(micro_seconds);                  // make delay to server before execute the code but take micro second parmeter
-time_sleep_until(timestamp);            // make delay to server before execute the code but take timestamp 
-uniqid(prefix);                         // this function make random number for making id key
-// ex uniqid('id_')                      output: id_5f831da95b804
-error_reporting(0);                     // this function disable the errors 
-filter_var(variable , filtertype);     // this function make afilter on variable 
-/*
-filter type
-1- FILTER_VALIDATE_EMAIL             this filter check if the variable EMAIL
-2- FILTER_VALIDATE_INT               this filter check if the variable INT
-3- FILTER_VALIDATE_IP                this filter check if the variable IP
-4- FILTER_VALIDATE_URL               this filter check if the variable URL        
-*/
-exit();                                // this function stop exceute the code
-die();                                  // this function like exit php stop exceute the code
 
-$phpIniFile = php_ini_loaded_file();
+echo gettype($arr); // Output: array
+echo htmlspecialchars('<b>Bold</b>'); // Output: &lt;b&gt;Bold&lt;/b&gt;
+var_dump($arr); // Output: Detailed information about the array
 
-if ($phpIniFile) {
-    echo "Loaded php.ini file: $phpIniFile"; # will print which php.ini loaded 
-} 
+echo ucwords($str); // Output: Hello Am Hadi
+echo count($arr); // Output: 3
+print_r($arr); // Output: Array ( [0] => el1 [1] => el2 [2] => el3 )
+
+sleep(2); // Pauses the script for 2 seconds
+usleep(500000); // Pauses the script for 500 milliseconds
+
+echo uniqid('id_'); // Output: id_5f831da95b804
+
+error_reporting(0); // Disables error reporting
+
+// Filter example
+if (filter_var('test@example.com', FILTER_VALIDATE_EMAIL)) {
+    echo 'Valid Email';
+} else {
+    echo 'Invalid Email';
+}
+
+exit(); // Terminates the script
+
+

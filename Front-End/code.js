@@ -1,200 +1,133 @@
 /**
- * Created by hadi on 8/23/2018.
+ * Created by Hadi on 8/23/2018.
  */
-// my code
 
-tybeof()                                                     //تحديد نوع الdata
-get                                                         //معطيات الكمبيوتر
-set                                                        //معنى أعادة تعيين
-nodes                                                     // وتعني تعليق اونص او عنصر
+// Data Type Functions
+typeof("hi"); // تحديد نوع الdata
 
+// Get and Set
+get; // معطيات الكمبيوتر
+set; // إعادة تعيين
 
-// Function syantx
-
-new Date()
-.insertBefore()
-
-//--------------------------------------------------------------------------------
-
-// Array syantx
-
-.length();                                              //عد حروف المصفوفة أو السلسلة
-array.toString()                                       //تحويل المصفوفة لسلسلة
-array.join("- . $")                                   //تحويل المصفوفة لسلسلة وأختيار أداة الربط بين السلسلة
-unshift                                              //أضافة عنصر أول المصفوفة
-shift                                               //حذف  عنصر أول المصفوفة
-.splice(number , optiona)                          //حذف وأضافة عنصر المصفوفة
-.sort( )                                          // ترتيب عناصر المصفوفة بترتيب أبجدية
-.reverse( )                                      // عكس ترتيب عناصر المصفوفة بترتيب أبجدية
-.slice(start, end)                              // أحذ شريحة من المصفوفة
-.concat()                                      // دمج مصفوفة
-.indexOf( "index")                            // أيجاد رقم عنصر مصفوفة
-.lastindexOf( "index")                       // أيجاد رقم عنصر مصفوفةمن الأخر
-
-//--------------------------------------------------------------------------------
-//ITERATORS
-
-//Iteration methods                  // عدة طرق تأخذ كوسائط الدالات ليتم استدعاؤها مرة أخرى أثناء معالجة المصفوفة
-.forEach();                         //يستخدم لتنفيذ نفس الكود على كل عنصر في المصفوفة ولكن لا يغير المصفوفة ويعيد undefined
-.map();                            // تنفيذ نفس التعليمة البرمجية على كل عنصر في المصفوفة وإرجاع مصفوفة جديدة مع العناصر المحدثة
-.filter();                        //يتحقق كل عنصر في مصفوفة لمعرفة ما إذا كان يستوفي معايير معينة ويعيد مصفوفة جديدة مع العناصر التي ترجع الحقيقة للمعايير.
-.findIndex();                    // إرجاع فهرس العنصر الأول من المصفوفة يفي بشرط في وظيفة رد الاتصال. تقوم بإرجاع -1 إذا كان أي من العناصر في المصفوفة يفي الشرط.
-.reduce();                      // يتكرر من خلال صفيف ويأخذ قيم العناصر ويعيد قيمة واحدة.
-
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods
-
-//------------------------------------------------------------------------------
-// String syantx
-
-.toString(string)                                               //تحول العنصر إلى سلسلة
-.split(sperator, limit)                                        //تحول السلسلة إلى مصفوفة
-.substr(start{require}, length{optiona})                      // أحذ شريحة  من السلسلة
-.substring(start{require}, end{optiona})                     // أحذ شريحة  من السلسلة
-.charArt("number of index")                                 //معرفة العنصر في السلسة بكتابة رقمه
-.charCodeAt("number of index")                             //معرفة كود العنصر في السلسة بكتابة رقمه
-.fromcharCode("number of unicode")                        //;كتابة العنصر في السلسة بكتابة كود ترميذه
-.replace("value , new value")                            //تغيير العنصر في السلسة إلى عنصر جديد
-.concat()                                               // جمع سلسلتين
-.toLowerCase()                                         //لتحويل حروف السلسلة إلى أحرف صغيرة
-.toUpperCase()                                        //لتحويل حروف السلسلة إلى أحرف صغيرة
-.trim()                                              //أزالة المسافات من السلسلة
-
-//--------------------------------------------------------------------------------
+// DOM Nodes
+nodes; // وتعني تعليق عنصر أو وحدة
 
 
-// For syantx
 
-var i ; for (i=x; i<x; ++i) {};
-var i=x ; while (i<x) { ++i; };
-var i=x ; do { ++i; } while (i<=x);
-continue                                                  // تستبعد العنصر في الشرط ثم تكمل
-break                                                    // توقف الشرط
+// Array Syntax
+array.length; // عد العناصر في المصفوفة أو السلسلة
+array.toString(); // تحويل المصفوفة إلى سلسلة
+array.join("- . $"); // تحويل المصفوفة إلى سلسلة مع تحديد أداة الربط
+array.unshift(); // إضافة عنصر في بداية المصفوفة
+array.shift(); // حذف العنصر الأول من المصفوفة
+array.splice(number, optional); // حذف أو إضافة عنصر في المصفوفة
+array.sort(); // ترتيب عناصر المصفوفة بترتيب أبجدي
+array.reverse(); // عكس ترتيب عناصر المصفوفة
+array.slice(start, end); // أخذ شريحة من المصفوفة
+array.concat(); // دمج مصفوفات
+array.indexOf("index"); // إيجاد رقم العنصر في المصفوفة
+array.lastIndexOf("index"); // إيجاد رقم العنصر في المصفوفة من آخرها
 
-// Math syantx
 
-Math.ceil(number) ;                                            // تحدد سقف أو أعلى الرقم للرقم ذاته
-Math.floor(number);                                           //تحدد أدنى الرقم للرقم ذاته
-Math.round(number) ;                                         //تحدد تقريب الرقم
-Math.min(number, number,number );                           //تحدد أقل رقم بين الأرقام
-Math.max(number, number,number ) ;                         //تحدد أعلى رقم بين الأرقام
-Math.random() ;                                           //تعطي رقم عشوائي
+// Iterators (Array Iteration Methods)
+array.forEach(); // تنفيذ نفس الكود على كل عنصر في المصفوفة بدون تغيير المصفوفة
+array.map(); // تنفيذ نفس الكود على كل عنصر في المصفوفة وإرجاع مصفوفة جديدة
+array.filter(); // فحص كل عنصر في المصفوفة لإيجاد العناصر التي تحقق شروط معينة
+array.findIndex(); // إرجاع فهرس أول عنصر يفي بالشرط
+array.reduce(); // تقليص المصفوفة إلى قيمة واحدة
 
-//--------------------------------------------------------------------------------
 
-// Regular expression syntax
+// String Syntax
+string.toString(); // تحويل العنصر إلى سلسلة
+string.split(separator, limit); // تحويل السلسلة إلى مصفوفة
+string.substr(start, length); // أخذ جزء من السلسلة
+string.substring(start, end); // أخذ جزء من السلسلة
+string.charAt(index); // معرفة العنصر في السلسلة بناءً على الرقم
+string.charCodeAt(index); // معرفة كود العنصر في السلسلة بناءً على الرقم
+String.fromCharCode(code); // كتابة العنصر بناءً على كود Unicode
+string.replace("oldValue", "newValue"); // استبدال جزء من السلسلة بقيمة جديدة
+string.concat(); // دمج سلسلتين
+string.toLowerCase(); // تحويل السلسلة إلى أحرف صغيرة
+string.toUpperCase(); // تحويل السلسلة إلى أحرف كبيرة
+string.trim(); // إزالة المسافات من السلسلة
 
-/*i                                                          // وتعني لافرق بين الأحرف الكبيرة والصغيرة
-g                                                           // وتعني التعميم
-m                                                          // وتعني البحث في أكثر من سطر
-[element]                                                 //لتحديد العنصر
-[^element]                                               // تحديد كل شيئ ماعدا العنصر
-letter +                                                // تحديد حرف واحد
-letter {number}                                        // تحديد أكثر من حرف
-letter {number,}                                      // تحديد على الأقل أكثر من حرف
+
+// Loop Syntax
+for (let i = x; i < x; ++i) {}; // استخدام الحلقة for
+while (i < x) { ++i; } // استخدام الحلقة while
+do { ++i; } while (i <= x); // استخدام الحلقة do-while
+// continue;  الاستمرار في الدورة مع تخطي العنصر الحالي
+// break; // الخروج من الحلقة
+
+
+// Math Syntax
+Math.ceil(number); // التقريب للأعلى
+Math.floor(number); // التقريب للأسفل
+Math.round(number); // تقريب الرقم لأقرب عدد صحيح
+Math.min(num1, num2, num3); // إيجاد أصغر رقم بين الأرقام
+Math.max(num1, num2, num3); // إيجاد أكبر رقم بين الأرقام
+Math.random(); // توليد رقم عشوائي
+
+
+// Regular Expressions Syntax
+/* 
+i     // عدم التمييز بين الحروف الكبيرة والصغيرة
+g     // التعميم (البحث في كل النصوص)
+m     // البحث في عدة أسطر
+[element] // تحديد العنصر
+[^element] // تحديد كل شيء ما عدا العنصر
+letter+ // تحديد حرف واحد أو أكثر
+letter{number} // تحديد عدد الحروف
+letter{number,} // تحديد على الأقل عدد الحروف
 */
-//Date syantx
-
-new Date();                                              //كتابة التاريخ المحلي
-new Date(millesecond);                                  //كتابة التاريخ من أول بدء النظام 1970
-.getDate();                                            // تستخدم لكتابة اليوم
-.getDay() ;                                           // يكتب ترتيب اليوم في الاسبوع
-.getFullYear() ;                                     // يكتب كم يوم تبقى في السنة
-.setDate()  ;                                       // أعادة تعيين التاريخ
-now()   ;                                          // تكتب لنا التاريح من 1970 إلى وقتنا الحالي
-parse();
-.toIsoString()  ;                                 //تحول كتابة الوقت ألى شكل ايزو
-.toDateString()  ;                               // تكتب الوقت بشكل سلسلة
-.toTimeString()   ;                             // تكتب التاريخ بشكل زمن
-
-//--------------------------------------------------------------------------------
-
-//numbers
-
-.parseInt() ;                                                         // تحول السلسلة إلى رقم
-
-//dom.events
 
 
-document.getElementById();                                          // وتعني منادة العنصر عن طريق اي دي
-document.getElementsByTagName() ;                                  // مناداة جميع العناصر التي تحمل نفس التاغ مثل div or p ....
-document.getElementsByClassName() ;                               // مناداة جميع العناصر التي تحمل نفس اسم الكلاس
-.textContent                                                    //  أظهار النص الموجود في العنصر
-.querySelector ()                                              // تحدد عنصر من html
-element.className =                                           // يغير أسم الكلاس
-element.id  =                                                // يغير الفيمة
-element.Attribute                                           // يغير Attribute
-.setAttribute('src', 'http://placehold.it/100/0000')       // تعين قيمة جديدة ل attribute مثل المثال التالي ->
-.hasAttribute()                                           // تستخدم في الشرط if
-.removeAttribute()                                       //تستحدم لأزالة attribute
-.add()                                                  // تستخدم للأضافة
-.remove()                                              // تستحدم لأزالة كلاس
-.toggle()                                             // تستخدم لأزالة أو أضافة كلاس
-.childElementCount                                   // تقوم بحساب عدد أطفال لأب
-.children                                           // تقوم ب أظهار الأطفال في عنصر لأب
-.ChildNodes                                        // تقوم بحساب عدد العنصر في الأب مع أعتبار النص والتعليق عنصر
-.firstChild = childNodes[0]                       // تقوم بأظهار أول طفل من العناصر مع أعتبار التعليق والنص عنصر
-.firstElementChild                               // تقوم بأظهار أول طفل من العناصر
-.lastChild = childNodes[0]                      // تقوم بأظهار أخر طفل من العناصر مع أعتبار التعليق والنص عنصر
-.lastElementChild                              // تقوم بأظهار أخر طفل من العناصر
-.appendChild()                                // تستخدم لأضافة طفل للأب
-.removeChild()                               //أزالة طفل من الأب
-.nodeName                                   //مع أعتبار النص والتعليق عنصر أسم العنصر
-.tagName                                   // اسم العنصر
-.cloneNode(true)                          // نسح اي عنصر
+// Date Syntax
+new Date(); // كتابة التاريخ المحلي
+var date = new Date(milliseconds); // كتابة التاريخ من تاريخ بدء النظام (1970)
+date.getDate(); // الحصول على اليوم من الشهر
+date.getDay(); // الحصول على يوم الأسبوع
+date.getFullYear(); // الحصول على السنة
+date.setDate(); // إعادة تعيين اليوم
+date.now(); // الحصول على التاريخ والوقت من بداية النظام
+date.parse(); // تحليل التاريخ
+date.toISOString(); // تحويل التاريخ إلى صيغة ISO
+date.toDateString(); // تحويل التاريخ إلى سلسلة
+date.toTimeString(); // تحويل الوقت إلى سلسلة
 
 
-//--------------------------------------------------------------------------------
-
-    //Events
-
-/* .clientHeight                                   // تحسب أرتفاع  العنصر المرئي
-.clientWidth                                      // تحسب عرض  العنصر المرئي
-.scrollHeight                                    //  تحسب أرتفاع العنصر المرئي والغير مرئي
-.scrollWidth                                    // تحسب عرض العنصر المرئي والغير مرئي
-.offsetHeight                                  //  تحسب أرتفاع العنصر المرئي والغير مرئي بلأضاغة ل paddin & border
-.offsetWidth                                  // تحسب عرض العنصر المرئي والغير مرئي بلأضاغة ل paddin & border
-.preventDefault                              // تمنع أكمال الكود
+// Numbers Syntax
+parseInt(); // تحويل السلسلة إلى عدد صحيح
 
 
-// document
+// DOM Events
+document.getElementById("id"); // الحصول على العنصر بواسطة الـ id
+document.getElementsByTagName("tag"); // الحصول على العناصر بواسطة التاج
+document.getElementsByClassName("class"); // الحصول على العناصر بواسطة الكلاس
+element.textContent; // إظهار النص داخل العنصر
+document.querySelector(); // تحديد عنصر باستخدام CSS selector
+element.className = "className"; // تغيير اسم الكلاس
+element.id = "id"; // تغيير الـ id
+element.setAttribute("attribute", "value"); // تعيين قيمة لـ attribute
+element.hasAttribute("attribute"); // التحقق إذا كان العنصر يحتوي على attribute
+element.removeAttribute("attribute"); // إزالة attribute
+element.addEventListener("event", function(){}); // إضافة حدث إلى العنصر
 
-.inputEncoding                                     //معرفة لغة ترميز الصفحة
-.lastModified                                     // يعطينا أخر تعديل في الصفحة
-.url                                             // تعطينا رابط الصفحة
-.createElement                                  // لأنشاء عنصر في html
-.createTextNode()                              //لأنشاء نص في html
-.createTextNode()                             //لأنشاء تعليق في html
-.createComment                               // أنشاء تعليق
-*/
-//مراحل أضافة class أو أي Attribute لصفحة html ب أستخدام js
 
-// أولا بناء class
-var myAttr = document.createAttribute('class');
-
-// ثانيا تغيير value
-myAttr.value = 'custom';
-
-// أخيرا أضافة attributes للعنصر
-myElement.setAttributeNode('myAttr');
-
-//------------------------------------------------------------------------------
-
-// important Events
-
-window.onload;                                            //أنتظار تحميل الصفخة
-window.onscroll ;                                        //عند القيام ب scroll للفأرة
-window.onresize                                         // عند القيام بتكبير وتصغيرالشاشة
-.onfocus                                               // عند القيام يتركيز على الغنصر
-.onblur                                               // عند الأبتعاد عن العنصر
-.blur()                                              // لأزالة التركيز على العنصر
-.focus()                                            //للتركيز على العنصر
-.onclick                                           // للضغط يدويا باستخدام الماوس
-.ondblclick                                       // للضغط يدويا مرتين باستخدام الماوس
-.click()                                         // للضغط أليا باستخدام الماوس
-.oncontextmenu                                  // تستخدم عند الضغط بزر اليمين للفأرة
-.onmouseleave                                  // تستخدم عند ب أبعاد الماوس
-.onkeyup                                      // عند مغادرة الضغط على الكيبورد
-.onkeydown                                   // عند القيام بالكتابة
-.onkeypress                                 // عند الضغط على الكيبورد
-eval;                                      // تقوم يعمليات حسابية
-
+// Important Events
+window.onload; // عند تحميل الصفحة
+window.onscroll; // عند القيام بالتمرير
+window.onresize; // عند تغيير حجم الشاشة
+element.onfocus; // عندما يتم التركيز على العنصر
+element.onblur; // عندما يتم فقدان التركيز على العنصر
+element.focus(); // تركيز على العنصر
+element.blur(); // إلغاء التركيز عن العنصر
+element.onclick; // عند الضغط على العنصر باستخدام الماوس
+element.ondblclick; // عند الضغط مرتين على العنصر باستخدام الماوس
+element.click(); // تنفيذ click على العنصر برمجيًا
+element.oncontextmenu; // عند الضغط بزر الفأرة الأيمن
+element.onmouseleave; // عند مغادرة الماوس للعنصر
+element.onkeyup; // عند مغادرة المفتاح
+element.onkeydown; // عند الضغط على مفتاح
+element.onkeypress; // عند الضغط على مفتاح
+eval(); // تنفيذ العمليات الحسابية
