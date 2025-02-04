@@ -1,0 +1,62 @@
+ $client = ClientBuilder::create()->build();
+        create index
+        $params = [
+            'index' => 'products',
+            'id' => 5,
+            'body' => [
+                'name' => 'women shoes',
+                'price' => 46,
+
+            ]
+        ];
+        $response = $client->index($params);
+
+        get
+        $params = [
+            'index' => 'products',
+            'id' => 5,
+        ];
+        $response = $client->get($params);
+
+         update
+
+        $params = [
+            'index' => 'products',
+            'id' => 5,
+            'body' => [
+                'doc' => [
+                    'price' => 460,
+                ]
+
+            ]
+        ];
+        $response = $client->update($params);
+
+                   delete
+        $params = [
+            'index' => 'products',
+            'id' => 5,
+        ];
+               $response = $client->delete($params);
+         delete index
+
+        $params = [
+            'index' => 'products',
+        ];
+        $response = $client->indices()->delete($params);
+        dd($response->asArray());
+
+        $params = [
+            'index' => 'products',
+            'body' => [
+                'query' => [
+                    'multi_match' => [
+                        'query' => 'shoes',
+                        'fields' => ["name_ar", "desc_ar"]
+                    ]
+                ]
+            ]
+        ];
+
+        // Execute the search
+        $response = $client->search($params);

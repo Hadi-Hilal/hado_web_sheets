@@ -1,5 +1,7 @@
 /**
+ * JS SHEETS CHEAT
  * Created by Hadi on 8/23/2018.
+ * for more details https://quickref.me/javascript.html
  */
 
 // Data Type Functions
@@ -11,7 +13,6 @@ set; // إعادة تعيين
 
 // DOM Nodes
 nodes; // وتعني تعليق عنصر أو وحدة
-
 
 
 // Array Syntax

@@ -30,7 +30,7 @@ console.log(user["firstName"]); // "Hadi" (Bracket notation)
 // -----------------------------------------------------------------------------
 
 /**
- * 2. Creating Objects with `new Object`
+ * 2. Creating Objects with `new Object` or create 
  */
 const user2 = new Object();
 user2.name = "Hadi";
@@ -40,6 +40,21 @@ user2.greet = function () {
 
 console.log(user2.name); // "Hadi"
 console.log(user2.greet()); // "Hello, Hadi"
+
+
+
+const personPrototype = {
+  greet: function () {
+    return `Hello, my name is ${this.name}`;
+  }
+};
+
+// Create a new object with `personPrototype` as its prototype
+const otherUser = Object.create(personPrototype);
+user.name = "Ali";
+user.age = 27;
+
+console.log(otherUser.greet()); // Output: Hello, my name is Ali
 
 // -----------------------------------------------------------------------------
 

@@ -1,0 +1,288 @@
+===============================================
+========== ElasticSearch Cheat Sheet ==========
+===================2025========================
+
+# 1. Create Index with Settings
+# Create an index named 'site_settings' with specified number of shards and replicas
+# ------------------------------------------------------------------------------------
+PUT site_settings
+{
+  "settings": {
+    "number_of_shards": 3,
+    "number_of_replicas": 1
+  }
+}
+
+# 2. Retrieve Index Settings
+# Retrieve settings of an index
+# ------------------------------------------------------------------------------------
+GET site_settings
+
+# 3. View Shard Information
+# View the shard details of the 'site_settings' index
+# ------------------------------------------------------------------------------------
+GET _cat/shards/site_settings?pretty
+
+# 4. Delete Index
+# Delete an index
+# ------------------------------------------------------------------------------------
+DELETE site_settings
+
+# 5. Create Index with Mappings
+# Create an index with mappings for fields: 'name_key' (keyword) and 'name_text' (text)
+# ------------------------------------------------------------------------------------
+PUT names
+{
+  "mappings": {
+    "properties": {
+      "name_key": {
+        "type": "keyword"
+      },
+      "name_text": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+# 6. Add a Document to an Index
+# Add a document to 'site_settings' index
+# ------------------------------------------------------------------------------------
+POST site_settings/_doc
+{
+  "key": "value",
+  "description": "This is a test"
+}
+
+# 7. Retrieve Document by ID
+# Retrieve the document with the specified ID from 'site_settings'
+# ------------------------------------------------------------------------------------
+GET site_settings/_doc/1
+
+# 8. Search Documents in an Index
+# Search for documents containing the word 'test' in the 'description' field
+# ------------------------------------------------------------------------------------
+GET site_settings/_search
+{
+  "query": {
+    "match": {
+      "description": "test"
+    }
+  }
+}
+
+# 9. Update a Document by ID
+# Update the document with ID 1 by changing the 'description' field
+# ------------------------------------------------------------------------------------
+POST site_settings/_doc/1/_update
+{
+  "doc": {
+    "description": "Updated description"
+  }
+}
+
+# 10. Delete a Document by ID
+# Delete the document with ID 1 from 'site_settings'
+# ------------------------------------------------------------------------------------
+DELETE site_settings/_doc/1
+
+# 11. List All Indices
+# List all indices in the cluster
+# ------------------------------------------------------------------------------------
+GET _cat/indices?v
+
+# 12. Check Index Health
+# Check the health status of the 'site_settings' index
+# ------------------------------------------------------------------------------------
+GET _cat/indices/site_settings?v
+
+# 13. Create a New Index with Dynamic Mapping Disabled
+# Create an index where dynamic mappings are turned off
+# ------------------------------------------------------------------------------------
+PUT dynamic_disabled_index
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "dynamic": "false",
+    "properties": {
+      "name": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+# 14. Get Mapping of an Index
+# Retrieve the mapping for the 'site_settings' index
+# ------------------------------------------------------------------------------------
+GET site_settings/_mapping
+
+# 15. Refresh an Index
+# Refresh the 'site_settings' index to make recent changes searchable
+# ------------------------------------------------------------------------------------
+POST site_settings/_refresh
+
+# 16. Analyze Text (for debugging tokenization)
+# Analyze the text and see how it is tokenized
+# ------------------------------------------------------------------------------------
+GET site_settings/_analyze
+{
+  "text": "The quick brown fox"
+}
+
+# 17. Cluster Health
+# Get the health of the cluster
+# ------------------------------------------------------------------------------------
+GET _cluster/health?pretty
+
+# 18. Cluster Nodes Information
+# Retrieve information about all nodes in the cluster
+# ------------------------------------------------------------------------------------
+GET _cat/nodes?v
+
+# 19. Retrieve Node Stats
+# Get stats for all nodes
+# ------------------------------------------------------------------------------------
+GET _nodes/stats?pretty
+
+# 20. View Index Statistics
+# View basic index stats such as document count and store size
+# ------------------------------------------------------------------------------------
+GET _cat/indices/site_settings?h=index,docs.count,store.size
+
+# 21. View Fielddata Stats
+# View field data statistics, useful for debugging memory usage
+# ------------------------------------------------------------------------------------
+GET _cat/fielddata?pretty
+
+# 22. Update Index Settings
+# Update settings of the 'site_settings' index
+# ------------------------------------------------------------------------------------
+PUT site_settings/_settings
+{
+  "settings": {
+    "index.refresh_interval": "1s"
+  }
+}
+
+# 23. Alias for Index
+# Create an alias for the 'site_settings' index
+# ------------------------------------------------------------------------------------
+POST /_aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "site_settings",
+        "alias": "site_alias"
+      }
+    }
+  ]
+}
+
+# 24. Delete Index Alias
+# Remove the alias from the 'site_settings' index
+# ------------------------------------------------------------------------------------
+POST /_aliases
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "site_settings",
+        "alias": "site_alias"
+      }
+    }
+  ]
+}
+
+# 25. Scroll Search (for large result sets)
+# Perform a scroll search to retrieve large result sets without timeouts
+# ------------------------------------------------------------------------------------
+POST /site_settings/_search/scroll
+{
+  "scroll": "1m",
+  "scroll_id": "scroll_id_here"
+}
+
+# 26. Bulk Indexing
+# Bulk insert or update multiple documents
+# ------------------------------------------------------------------------------------
+POST _bulk
+{ "index": { "_index": "site_settings", "_id": 1 }}
+{ "key": "value", "description": "Bulk inserted document" }
+{ "index": { "_index": "site_settings", "_id": 2 }}
+{ "key": "another_value", "description": "Another bulk document" }
+
+# 27. Multi-Index Search
+# Search across multiple indices
+# ------------------------------------------------------------------------------------
+GET /site_settings,another_index/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+# 28. Query String Query
+# Use a query string to search across all fields
+# ------------------------------------------------------------------------------------
+GET site_settings/_search
+{
+  "query": {
+    "query_string": {
+      "query": "key:value"
+    }
+  }
+}
+
+# 29. Match Phrase Query
+# Perform a phrase query for a specific match
+# ------------------------------------------------------------------------------------
+GET site_settings/_search
+{
+  "query": {
+    "match_phrase": {
+      "description": "quick brown fox"
+    }
+  }
+}
+
+# 30. Range Query
+# Search for documents within a specific range (e.g., price, date, etc.)
+# ------------------------------------------------------------------------------------
+GET site_settings/_search
+{
+  "query": {
+    "range": {
+      "date": {
+        "gte": "2023-01-01",
+        "lte": "2023-12-31"
+      }
+    }
+  }
+}
+
+# 31. Term Query
+# Perform a term query (exact match) for a field
+GET site_settings/_search
+{
+  "query": {
+    "term": {
+      "key": "value"
+    }
+  }
+}
+
+# 32. Prefix Query
+# Search for documents with a prefix match on a field
+GET site_settings/_search
+{
+  "query": {
+    "prefix": {
+      "name_key": "prefix_value"
+    }
+  }
+}

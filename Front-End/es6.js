@@ -1,79 +1,208 @@
 /**
+ * 📝 ECMAScript 6+ (ES6+) Cheat Sheet
  * Created by Hadi on 2020.
+ * For more details: https://quickref.me/es6
  */
 
-// ECMA SCRIPT SHEETS CHEAT  
+/** 🌟 New Features in ES6: let, const, and var */
 
-/**
- * New features in ES6: let and const 
- * var: 
- *  - Function scope
- *  - Can be redeclared
- * const: 
- *  - Block scope, used for constant values
- *  - Cannot be redeclared
- * let: 
- *  - Block scope
- *  - Cannot be redeclared
- */
+// ✅ var:
+// - Function-scoped
+// - Can be redeclared
+// - Hoisted but initialized as undefined
+// - Creates a property on the global `window` object (in browsers)
 
-// 1. Arrow function example:
-let newFunc = () => { 
-    return 'something here'; 
+// ✅ let & const:
+// - Block-scoped
+// - Cannot be redeclared within the same scope
+// - ReferenceError when accessed before declaration
+// - Does NOT create a global `window` property
+
+/** 🔧 1. Arrow Functions */
+
+const newFunc = () => "something here";
+const oldFunc = function () {
+  return "something here";
 };
 
-var oldFunc = function() { 
-    return 'something here'; 
+/** 📜 2. Multiline Strings with Template Literals (`) */
+
+const name = "Hadi";
+const message = `This is
+a multiline message
+for ${name}.`;
+
+/** 📦 3. Default Parameter Values */
+
+function greet(name = "Guest") {
+  return `Hello, ${name}!`;
+}
+const arrowGreet = (name = "Guest") => `Hello, ${name}!`;
+
+/** 🔀 4. Spread Operator (...) */
+
+const numbers = [1, 2, 3];
+console.log(...numbers); // Output: 1 2 3
+
+/** 🧩 5. Object Destructuring */
+
+const user = {
+  username: "Omar",
+  age: 23,
+  role: "Admin",
+  theme: "Dark",
+  langs: { ar: "100%", en: "75%" },
 };
 
-// 2. Multiline strings using backticks (``):
-const name = 'Hadi'; 
-let message = `Here is 
-               a message 
-               spanning multiple lines, ${name}`; // Prints the const value
+const { username, age, role, color = "red", langs: { ar, en } } = user;
 
-// 3. Default parameter values in functions:
-function test(param1 = 'default value') {
-    return `Function called with ${param1}`;
+/** 🔧 6. Object Literals */
+
+// ✅ Property Shorthand
+const myName = "Hadi";
+const myAge = 27;
+
+const person = { myName, myAge };
+
+// ✅ Method Shorthand
+const greeting = {
+  sayHello() {
+    console.log("Hello!");
+  },
+};
+
+// ✅ Computed Property Names
+const propName = "age";
+const personClass = {
+  name: "Hadi",
+  [propName]: 27,
+};
+
+/** 📚 7. Sets (Unique Collections) */
+
+const mySet = new Set([1, 2, 2, 3, "Hello", { name: "John" }]);
+mySet.add(5);
+mySet.delete(2);
+console.log(mySet.size); // 4
+mySet.clear();
+
+/** 🗺️ 8. Maps (Key-Value Pairs) */
+
+const myMap = new Map();
+myMap.set("name", "Hadi").set(42, "The Answer").set(true, "Boolean Key");
+console.log(myMap.get("name")); // Hadi
+
+/** 🔑 9. Symbols (Unique, Immutable Identifiers) */
+
+const mySymbol = Symbol("myUniqueIdentifier");
+console.log(mySymbol); // Output: Symbol(myUniqueIdentifier)
+
+/** 🚫 10. Object.freeze() (Immutable Objects) */
+
+const obj = { key: "value" };
+Object.freeze(obj);
+// obj.key = "newValue"; // Error: Cannot modify a frozen object
+
+/** ✂️ String Methods (New in ES6) */
+
+const str = "Hello, world!";
+console.log(str.startsWith("Hello")); // true
+console.log(str.endsWith("world!")); // true
+console.log(str.includes("world")); // true
+console.log("abc".repeat(3)); // 'abcabcabc'
+
+/** 🔄 11. Iterators */
+
+function createIterator(array) {
+  let index = 0;
+  return {
+    next() {
+      return index < array.length
+        ? { value: array[index++], done: false }
+        : { done: true };
+    },
+  };
 }
 
-// Example of using the arrow function with default parameters
-let arrowFunc = (param1 = 'default value') => {
-    return `Arrow function called with ${param1}`;
-};
+const iterator = createIterator(["Hadi", "Hilal", "Developer"]);
+console.log(iterator.next()); // { value: 'Hadi', done: false }
 
-// Important new functions in ES6:
+/** 🔄 12. Generators (Special Iterators) */
 
-// Object.freeze: Makes an object constant (immutable)
-const obj = { key: 'value' };
-Object.freeze(obj); // obj cannot be modified now
+function* numberGenerator() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
 
-// String functions:
-// startsWith(): Checks if the string starts with a given substring
-const str1 = 'Hello, world!';
-console.log(str1.startsWith('Hello')); // true
+const gen = numberGenerator();
+console.log(gen.next()); // { value: 1, done: false }
 
-// endsWith(): Checks if the string ends with a given substring
-console.log(str1.endsWith('world!')); // true
+/** 🧮 13. New Array Methods */
 
-// includes(): Checks if the string contains a given substring
-console.log(str1.includes('world')); // true
+// ✅ Array.of()
+console.log(Array.of(100)); // [100]
 
-// repeat(): Repeats the string a specified number of times
-console.log('abc'.repeat(3)); // 'abcabcabc'
+// ✅ Array.from()
+const myNumbers = [10, 20, 30];
+const minusTen = Array.from(myNumbers, (num) => num - 10);
+console.log(minusTen); // [0, 10, 20]
 
-// Set (ES6 feature for creating unique collections of values):
-let uniqueSet = new Set(['a', 'b', 'a', 'c']);
-console.log(uniqueSet); // Set { 'a', 'b', 'c' }
+// ✅ Array.fill()
+const numbersArr = [1, 2, 3];
+numbersArr.fill(100, 1, 3);
+console.log(numbersArr); // [1, 100, 100]
 
-// Add an element to a Set
-uniqueSet.add('d');
-console.log(uniqueSet); // Set { 'a', 'b', 'c', 'd' }
+/** 🧱 14. Classes */
 
-// Delete an element from a Set
-uniqueSet.delete('b');
-console.log(uniqueSet); // Set { 'a', 'c', 'd' }
+class User {
+  constructor(name) {
+    this.name = name;
+  }
 
-// Clear all elements from a Set
-uniqueSet.clear();
-console.log(uniqueSet); // Set { }
+  sayHello() {
+    console.log(`Hello, ${this.name}!`);
+  }
+}
+
+const userClass = new User("Hadi");
+userClass.sayHello(); // Hello, Hadi!
+
+/** 🤝 15. Promises */
+
+// ✅ A Promise Example
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Data fetched!"), 2000);
+});
+
+myPromise
+  .then((data) => console.log(data)) // "Data fetched!"
+  .catch((error) => console.error(error));
+
+/** 🔄 16. Async/Await (ES8 Feature) */
+
+async function fetchData() {
+  try {
+    const data = await myPromise;
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+fetchData();
+
+/** 🚀 17. Summary of Key ES6+ Features */
+
+// ✅ let and const
+// ✅ Arrow Functions
+// ✅ Template Literals
+// ✅ Default Parameters
+// ✅ Spread & Rest Operators
+// ✅ Object Destructuring
+// ✅ Object Literals
+// ✅ Sets & Maps
+// ✅ Symbols
+// ✅ Iterators & Generators
+// ✅ Classes
+// ✅ Promises
+// ✅ Async/Await

@@ -1,4 +1,7 @@
-/* Global jQuery API */
+/* 
+ * jQuery SHEETS CHEAT
+ * https://quickref.me/jquery
+*/
 
 // jQuery is a fast, small, and feature-rich JavaScript library. 
 // It simplifies things like HTML document traversal, manipulation, event handling, and animations.
